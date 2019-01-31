@@ -8,27 +8,21 @@ var Menu = {
     create: function () {
         this.playBtn = this.add.sprite(GameApp.CANVAS_WIDTH / 2, GameApp.CANVAS_HEIGHT / 2, 'buttonPlay').setInteractive();
         this.pauseBtn = this.add.sprite(GameApp.CANVAS_WIDTH / 2, GameApp.CANVAS_HEIGHT / 2 + 128, 'buttonPause').setInteractive();
-                            // this.playBtn.input.enabled = false;
-                            // this.playBtn.setVisible(false);
-        this.playBtn.on('pointerdown', function (event) {
-            showPopup()
 
+        this.playBtn.on('pointerdown', function (event) {  startPopup();   });
+            //timer = this.scene.time.addEvent({ delay: 5000, callback: closePopup, callbackScope: this});
 
-            timer = this.scene.time.addEvent({ delay: 5000, callback: closePopup, callbackScope: this});
-        });
         this.pauseBtn.on('pointerdown', function (event) {
-            //this.scene.background = red;
+            var randomColor = Math.floor(Math.random()*16777215).toString(16);
+            this.scene.cameras.main.setBackgroundColor('#' + randomColor);
         });
     }
 }
 
-function showPopup() {
-    var alert = bootbox.alert('Massage')
+function startPopup() {
+    var alert = bootbox.alert('Popup');
     alert.show();
     setTimeout(function(){alert.modal('hide'); }, 4000);
-}
-function closePopup() {
-
 }
 
 

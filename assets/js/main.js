@@ -25,7 +25,3 @@ var game = new Phaser.Game(GameApp.CANVAS_WIDTH, GameApp.CANVAS_HEIGHT, Phaser.A
 game.scene.add('Menu', Menu);
 game.scene.start('Menu');
 
-// game.state.add("Menu", new GameApp.BootState());
-// // ... your other states
-// game.state.start("Menu", true, false);
-
