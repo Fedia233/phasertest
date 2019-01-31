@@ -8,9 +8,12 @@ var Menu = {
     create: function () {
         this.playBtn = this.add.sprite(GameApp.CANVAS_WIDTH / 2, GameApp.CANVAS_HEIGHT / 2, 'buttonPlay').setInteractive();
         this.pauseBtn = this.add.sprite(GameApp.CANVAS_WIDTH / 2, GameApp.CANVAS_HEIGHT / 2 + 128, 'buttonPause').setInteractive();
-
-        this.playBtn.on('pointerdown', function (event) {\
+                            // this.playBtn.input.enabled = false;
+                            // this.playBtn.setVisible(false);
+        this.playBtn.on('pointerdown', function (event) {
             showPopup()
+
+
             timer = this.scene.time.addEvent({ delay: 5000, callback: closePopup, callbackScope: this});
         });
         this.pauseBtn.on('pointerdown', function (event) {
@@ -20,7 +23,9 @@ var Menu = {
 }
 
 function showPopup() {
-    alert('text');
+    var alert = bootbox.alert('Massage')
+    alert.show();
+    setTimeout(function(){alert.modal('hide'); }, 4000);
 }
 function closePopup() {
 
